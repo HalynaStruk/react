@@ -1,15 +1,14 @@
 import './App.css';
-import {Users} from './components'
-//, Posts, Comments
+import {Users, Posts, Comments} from './components'
 
 function App() {
     return (
         <div>
             <div className={'users_posts'}>
                 <Users/>
-                {/*<Posts/>*/}
+                <Posts/>
             </div>
-            {/*<Comments/>*/}
+            <Comments/>
         </div>
     );
 }
