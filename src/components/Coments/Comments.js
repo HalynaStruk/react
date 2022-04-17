@@ -5,7 +5,8 @@ import {Post} from '../Post/Post';
 
 const Comments = () => {
     const [comments, setComments] = useState([]);
-    useEffect((commentsService.getAllComments().then(value => setComments(value))) => {
+    useEffect(() => {
+        commentsService.getAllComments().then(value => setComments(value))
     }, [])
     return (
         <div>
