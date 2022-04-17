@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 import {postsService} from '../../services/posts.service';
 import {Post} from '../Post/Post';
 
-const Posts = () => {
+export const Posts = () => {
     const [posts, setPosts] = useState([]);
     useEffect(() => {
         postsService.getAllPosts().then(value => setPosts(value))
@@ -15,4 +15,3 @@ const Posts = () => {
     );
 };
 
-export default Posts;

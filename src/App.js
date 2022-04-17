@@ -1,5 +1,5 @@
 import './App.css';
-import {Users, Posts, Comments} from './components'
+import {Comments, Posts, Users} from './components'
 
 function App() {
     return (
