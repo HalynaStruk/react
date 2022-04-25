@@ -1,13 +1,11 @@
 import React from 'react';
-import {useState, useEffect} from 'react';
 
-const User = () => {
-    const [user, setUsers] = useState([]);
 
-    useEffect(()=>{}, [])
+const User = ({user}) => {
+    const{id, name, username} = user;
     return (
         <div>
-            User
+            {id} -- {name} -- {username}
         </div>
     );
 };

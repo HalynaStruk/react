@@ -1,4 +1,4 @@
-import {axiosService} from 'axios.service';
+import {axiosService} from './axios.service';
 import {urls} from '../constants';
 
 const userService = {
