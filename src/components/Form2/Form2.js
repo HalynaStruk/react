@@ -10,7 +10,7 @@ const Form2 = () => {
     return (
         <div>
             <div><label>Name:<input type="text" name={'name'} onChange={getUser}/></label></div>
-            <div><label>Age:<input type="number" age={'age'} onChange={getUser}/></label></div>
+            <div><label>Age:<input type="number" name={'age'} onChange={getUser}/></label></div>
             {JSON.stringify(user)}
         </div>
     );
