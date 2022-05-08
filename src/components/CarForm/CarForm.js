@@ -5,7 +5,7 @@ import {joiResolver} from "@hookform/resolvers/joi";
 import {carService} from "../../services";
 import {carValidator} from "../../validators";
 
-const CarForm = ({setNewCar, carForUpdate}) => {
+const CarForm = ({setNewCar, carForUpdate, setUpdatedCar}) => {
     // const [formError, setFormError] = useState({});
     const {register, reset, handleSubmit, formState:{errors}, setValue} = useForm({resolver:joiResolver(carValidator),
         mode:"onTouched"}); //useForm()- за нас будує готовий обєкт
@@ -25,8 +25,14 @@ const CarForm = ({setNewCar, carForUpdate}) => {
         // де ключами обєкта є те що ми ввели у ...register('model')
         // {valueAsNumber: true} задопомогою цієї опції дані будуть записані, як число
         try { // за допомогою try - catch ми відловлюємо помилку при введенні в input
-            const {data} = await carService.create(car);
-            setNewCar(data)
+            if (carForUpdate) {
+                const {data} = await carService.updateById(carForUpdate.id, car);
+                setUpdatedCar(data)
+            } else {
+                const {data} = await carService.create(car);
+                setNewCar(data)
+            }
+
             reset() // reset очищає форму
         } catch (e) {
             // setFormError(e.response.data)
@@ -44,7 +50,7 @@ const CarForm = ({setNewCar, carForUpdate}) => {
             <div><label>Year: <input type="text" {...register('year', {valueAsNumber: true})}/></label></div>
             {/*{formError.year && <span>{formError.year[0]}</span>}*/}
             {errors.year && <span>{errors.year.message}</span>}
-            <button>save</button>
+            <button>{carForUpdate ? 'Update' : 'Create'}</button>
             {/* знизу видно як вигдядає вкладеність, де price є обєктом всередині з ключами lower і higher */}
             {/*<div><label>Price: <input type="text" {...register('price.lower', {valueAsNumber: true})}/></label></div>*/}
             {/*<div><label>Price: <input type="text" {...register('price.higher', {valueAsNumber: true})}/></label></div>*/}

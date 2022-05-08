@@ -1,10 +1,11 @@
 import React from 'react';
 import {carService} from "../../services";
 
-const Car = ({car, setCarForUpdate}) => {
+const Car = ({car, setCarForUpdate, setDeleteCarId}) => {
     const {id, model, price, year} = car;
     const deleteCar = async () => {
       await carService.deleteById(id)
+        setDeleteCarId(id)
     }
     return (
         <div>
