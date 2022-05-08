@@ -5,9 +5,9 @@ import {joiResolver} from "@hookform/resolvers/joi";
 import {carService} from "../../services";
 import {carValidator} from "../../validators";
 
-const CarForm = ({setNewCar, carForUpdate, setUpdatedCar}) => {
+const CarForm = ({setNewCar, carForUpdate, setUpdatedCar, setCarForUpdate}) => {
     // const [formError, setFormError] = useState({});
-    const {register, reset, handleSubmit, formState:{errors}, setValue} = useForm({resolver:joiResolver(carValidator),
+    const {register, reset, handleSubmit, formState:{errors, isValid}, setValue} = useForm({resolver:joiResolver(carValidator),
         mode:"onTouched"}); //useForm()- за нас будує готовий обєкт
         // mode:"onTouched" якщо ми торкнемось до input зразу вибє помилка
 
@@ -39,6 +39,11 @@ const CarForm = ({setNewCar, carForUpdate, setUpdatedCar}) => {
         }
     }
 
+    const clearForm = () => {
+        setCarForUpdate(false);
+        reset();
+    }
+
     return (
         <form onSubmit={handleSubmit(submit)}>
             <div><label>Model: <input type="text" {...register('model')}/></label></div>
@@ -50,7 +55,10 @@ const CarForm = ({setNewCar, carForUpdate, setUpdatedCar}) => {
             <div><label>Year: <input type="text" {...register('year', {valueAsNumber: true})}/></label></div>
             {/*{formError.year && <span>{formError.year[0]}</span>}*/}
             {errors.year && <span>{errors.year.message}</span>}
-            <button>{carForUpdate ? 'Update' : 'Create'}</button>
+            <button disabled={!isValid}>{carForUpdate ? 'Update' : 'Create'}</button>
+            {
+                !!carForUpdate && <button onClick={clearForm}>clear form</button>
+            }
             {/* знизу видно як вигдядає вкладеність, де price є обєктом всередині з ключами lower і higher */}
             {/*<div><label>Price: <input type="text" {...register('price.lower', {valueAsNumber: true})}/></label></div>*/}
             {/*<div><label>Price: <input type="text" {...register('price.higher', {valueAsNumber: true})}/></label></div>*/}
