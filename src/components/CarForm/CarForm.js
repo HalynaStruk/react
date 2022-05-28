@@ -1,13 +1,22 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useForm} from "react-hook-form";
 import {joiResolver} from "@hookform/resolvers/joi";
 
 import {carService} from "../../services";
 import {carValidator} from "../../validators";
 
-const CarForm = ({setNewCar}) => {
+const CarForm = ({setNewCar, carForUpdate}) => {
     // const {formError,setFormError} = useState({});
-    const {register, reset, handleSubmit, formState:{errors}} = useForm({resolver:joiResolver(carValidator), mode:"onTouched"});
+    const {register, reset, handleSubmit, formState:{errors}, setValue} = useForm({resolver:joiResolver(carValidator), mode:"onTouched"});
+
+    useEffect(()=>{
+        if (carForUpdate) {
+            const {model, price, year} = carForUpdate;
+            setValue('model', model)
+            setValue('price', price)
+            setValue('year', year)
+        }
+    }, [carForUpdate])
 
     const submit = async (car) => {
         try {
