@@ -1,7 +1,7 @@
 import React from 'react';
 import {Routes, Route, Navigate} from 'react-router-dom'
 import {MainLayout} from "./layout";
-import {AboutPage, HomePage, NotFoundPage, PostPage, UsersPage} from "./pages";
+import {AboutPage, HomePage, NotFoundPage, PostPage, SinglePostPage, UsersPage} from "./pages";
 
 const App = () => {
     return (
@@ -11,7 +11,9 @@ const App = () => {
                 {/* це означає що при відкритті сторінки одразу відкриватиметься HomePage */}
                 <Route path={'home'} element={<HomePage/>}/>
                 <Route path={'users'} element={<UsersPage/>}/>
-                <Route path={'posts'} element={<PostPage/>}/>
+                <Route path={'posts'} element={<PostPage/>}>
+                    <Route path={':id'} element={<SinglePostPage/>}/>
+                </Route>
                 <Route path={'about'} element={<AboutPage/>}/>
                 <Route path={'*'} element={<NotFoundPage/>}/>
                 {/* '*' означає, якщо жоден зі шляхів вище не відбувся,
