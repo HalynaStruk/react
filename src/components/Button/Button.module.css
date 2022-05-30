@@ -1,0 +1,13 @@
+.button {
+    width: 200px;
+    height: 60px;
+    color: lightskyblue;
+    background-color: #efef98;
+    font-size: 50px;
+    border-radius: 40px;
+    border: lightskyblue;
+}
+.button:hover {
+    background-color: lightskyblue;
+    color: #f3f375;
+}
