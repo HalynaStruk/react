@@ -3,7 +3,7 @@ import React from 'react';
 // import {Link} from "react-router-dom";
 import {Button} from "../Button/Button";
 
-const Post = ({post}) => {
+const Post = ({post, flag}) => {
     // const navigate = useNavigate();
     const {id, title} = post;
     return (
@@ -11,7 +11,10 @@ const Post = ({post}) => {
             {/*{id} -- {title} <Link to={`${id}`} state={post}>get Details</Link>*/}
         {/* state={post} тут ми передали пост який є по id*/}
 
-            {id} -- {title} <Button to={`${id}`} state={post}>get Details</Button>
+            {id} -- {title}
+            {
+                flag && <Button to={`${id}`} state={post}>get Details</Button>
+            }
             {/*<button onClick={()=>navigate('/users')}>go to users</button> /!* navigate з button не робити це приклад*!/*/}
         </div>
     );

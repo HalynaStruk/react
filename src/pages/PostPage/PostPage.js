@@ -18,7 +18,7 @@ const PostPage = () => {
 
     return (
         <div style={{display:'flex'}}>
-            <div>{posts.map(post => <Post key={post.id} post={post}/>)}</div>
+            <div>{posts.map(post => <Post key={post.id} post={post} flag={!userId}/>)}</div>
             <div><Outlet/></div>
         </div>
     );
