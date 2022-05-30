@@ -1,26 +1,30 @@
 import React, {useEffect, useState} from 'react';
-import {useLocation, useParams} from "react-router-dom";
+import {useLocation, useParams, Outlet} from "react-router-dom";
 import {userService} from "../../services";
 import {UserDetails} from "../../components";
 
 const SingleUserPage = () => {
     const {state} = useLocation();
     const [user, setUser] = useState(state);
-    const {id} = useParams();
+    const {userId} = useParams();
 
     useEffect(()=>{
         if (!state) {
-            userService.getByUserId(id).then(({data})=>setUser(data))
+            userService.getByUserId(userId).then(({data})=>setUser(data))
         } else {
             setUser(state)
         }
 
-    }, [id, state])
+    }, [userId, state])
 
     return (
         <div>
+            <div>
             {user && <UserDetails user={user}/>}
+            </div>
+            <Outlet/>
         </div>
+
     );
 };
 

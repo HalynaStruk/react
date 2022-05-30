@@ -11,7 +11,8 @@ const App = () => {
                 {/* це означає що при відкритті сторінки одразу відкриватиметься HomePage */}
                 <Route path={'home'} element={<HomePage/>}/>
                 <Route path={'users'} element={<UsersPage/>}>
-                    <Route path={':id'} element={<SingleUserPage/>}/>
+                    <Route path={':userId'} element={<SingleUserPage/>}/>
+                    <Route path={'posts'} element={<PostPage/>}/>
                 </Route>
                 <Route path={'posts'} element={<PostPage/>}>
                     <Route path={':id'} element={<SinglePostPage/>}/>
