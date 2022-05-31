@@ -11,7 +11,8 @@ const MainLayout = () => {
            <div className={css.header}>
                <NavLink to="/home">Home</NavLink>
                <NavLink to="/users">Users</NavLink>
-               <NavLink to="/posts">Posts</NavLink>
+               <NavLink to="/posts" replace>Posts</NavLink> {/*replace затирає історію переходу на сторінку в даному випадку затре
+               той перехід що буде перед тим як ми натиснемо на сторінку PostPage*/}
                <NavLink to="/about">About</NavLink>
                {/* коли ми використовуємо NavLink
                 то при натискані на силку в неї зявляється class='active' */}
