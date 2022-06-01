@@ -2,9 +2,11 @@ import React from 'react';
 import {Outlet, NavLink, useNavigate} from 'react-router-dom';
 
 import css from './MainLayout.module.css'
+import {useAuth} from "../../hooks";
 
 const MainLayout = () => {
     const navigate = useNavigate();
+    const {user, logOut} = useAuth();
 
     return (
         <div>
@@ -16,6 +18,7 @@ const MainLayout = () => {
                <NavLink to="/about">About</NavLink>
                {/* коли ми використовуємо NavLink
                 то при натискані на силку в неї зявляється class='active' */}
+               {user && <h1>{user} <button onClick={()=> logOut(()=>navigate('/'))}>LogOut</button></h1>}
 
                {/*<Link to="/home">Home</Link>*/}
                {/*<Link to="/users">Users</Link>*/}

@@ -5,3 +5,4 @@ export * from './PostPage/PostPage';
 export * from './UsersPage/UsersPage';
 export * from './SinglePostPage/SinglePostPage';
 export * from './SingleUserPage/SingleUserPage';
+export * from './LoginPage/LoginPage';

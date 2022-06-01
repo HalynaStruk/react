@@ -5,7 +5,7 @@ const AuthContext = createContext(null);
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
 
-    const login = (newUser, cb) => {
+    const logIn = (newUser, cb) => {
         setUser(newUser);
         cb();
     }
@@ -14,7 +14,7 @@ const AuthProvider = ({children}) => {
         cb();
     }
 
-    const value = {user, login, logOut}
+    const value = {user, logIn, logOut}
     return (
         <div>
             <AuthContext.Provider value={value}>

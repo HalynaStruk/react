@@ -1,5 +1,5 @@
 import React from 'react';
-import {useLocation} from "react-router-dom";
+import {Navigate, useLocation} from "react-router-dom";
 import {useAuth} from "../hooks";
 
 const RequireAuth = ({children}) => {
@@ -9,11 +9,7 @@ const RequireAuth = ({children}) => {
     if (!user) {
         return <Navigate to={'/login'} state={location}/>
     }
-    return (
-        <div>
-            RequireAuth
-        </div>
-    );
+    return children
 };
 
 export {RequireAuth};
