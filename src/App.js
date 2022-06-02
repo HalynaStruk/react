@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {FunctionComponent} from "./components";
 
 const App = () => {
+    const [flag, setFlag] = useState(true)
     return (
         <div>
-          
+            <div>{flag && <FunctionComponent ssss={'MyProps'}/>}</div>
+            <button onClick={()=>setFlag(prev=>!prev)}>Hide</button>
         </div>
     );
 };
