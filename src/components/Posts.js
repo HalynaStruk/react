@@ -5,7 +5,7 @@ const Posts = () => {
 
     return (
         <div>
-            Posts
+            Posts 46 хв
         </div>
     );
 };
