@@ -12,7 +12,7 @@ const Users = () => {
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(value => value.json())
             .then(users => {
-                dispatch(loadUsers(users))
+                loadUsers(users, dispatch)
             })
     }, [])
 
