@@ -10,11 +10,7 @@ const Posts = () => {
 
 
     useEffect(()=> {
-        fetch('https://jsonplaceholder.typicode.com/posts')
-            .then(value => value.json())
-            .then(posts => {
-                loadPosts(posts , dispatch)
-            })
+        dispatch(loadPosts())
     }, [])
     return (
         <div>
