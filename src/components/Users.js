@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 
 const Users = () => {
 
-    let defaultRootState = useSelector(({usersState}) => usersState);
+    let defaultRootState = useSelector(({userState}) => userState);
     let dispatch = useDispatch();
 
     useEffect(()=> {
