@@ -1,8 +1,8 @@
-export function reducerUsers(state = [], action) {
+export function reducerPosts(state = [], action) {
     switch (action.type) {
         case "LOAD":
             return [...action.payload] // те що ми тут повертаємо
-            //попадає в defaultRootState (тобто масив з юзерами і тоді його мапаємо)
+        //попадає в defaultRootState (тобто масив з юзерами і тоді його мапаємо)
         default:
             return state;
     }

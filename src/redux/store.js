@@ -1,4 +1,7 @@
-import {createStore} from "redux";
-import {reducer} from "./user.reducer";
+import {combineReducers, createStore} from "redux";
+import {reducerUsers} from "./user.reducer";
+import {reducerPosts} from "./post.reducer";
 
-let store = createStore(reducer);
+let reducers = combineReducers({userState: reducerUsers, postState: reducerPosts})
+
+export let store = createStore(reducers);
