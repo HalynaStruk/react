@@ -13,6 +13,7 @@ const App = () => {
 
     return (
         <div>
+            <h1>state is - {state}</h1>
           <button onClick={()=>{
               dispatch({type:'INC',payload: 1})
               // dispatch викликає reducer
