@@ -5,7 +5,7 @@ import {userActions} from "../redux";
 
 const Form = () => {
     const nameInput = useRef();
-    const dispatch = useDispatch;
+    const dispatch = useDispatch();
 
     return (
         <div>
