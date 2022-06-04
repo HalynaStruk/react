@@ -4,6 +4,7 @@ import {User} from "./User";
 
 const Users = () => {
     const {users} = useSelector(state => state.user)
+    // useSelector() це щоб щось дістати зі свого store (в даному випадку ми тягнемо users)
     // users це те що є в файлі user.slice у const initialState = {users: []}
     // user це те що є в файлі store у rootReducer
 

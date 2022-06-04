@@ -5,7 +5,7 @@ import {userActions} from "../redux";
 
 const Form = () => {
     const nameInput = useRef();
-    const dispatch = useDispatch(); // викликає reducer
+    const dispatch = useDispatch(); // це щоб змінити свій state
 
     return (
         <div>
