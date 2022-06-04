@@ -12,13 +12,18 @@ const userSlice = createSlice({
             const {user} = action.payload;
             const newUser = {id: new Date().getTime(), name: user}
             state.users.push(newUser)
+        },
+        deleteById: (state, action) => {
+            const index = state.users.findIndex(value => value.id === action.payload.id)
+            state.users.splice(index, 1)
         }
     }
 })
 
-const {reducer: userReducer, actions:{add}} = userSlice;
+const {reducer: userReducer, actions:{add, deleteById}} = userSlice;
 
 export default userReducer;
 export const userActions = {
-    add
+    add,
+    deleteById
 }
