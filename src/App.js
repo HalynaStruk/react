@@ -1,10 +1,12 @@
 import React from 'react';
-import {Counter} from "./components";
+import {Counter, Users} from "./components";
 
 const App = () => {
     return (
         <div>
           <Counter/>
+          <Form/>
+            <Users/>
         </div>
     );
 };
