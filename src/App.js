@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Cats, CatsForm, Dogs, DogsForm} from "./components";
+import {Cats, CatsForm, Dogs, DogsForm} from './components';
 
 const App = () => {
     return (
