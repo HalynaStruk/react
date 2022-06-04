@@ -7,14 +7,14 @@ const CatsForm = () => {
 const [name, setName] = useState('');
 const dispatch = useDispatch();
 
-const save = () => {
+const saveCat = () => {
     dispatch(actionsCat.addCat({name}))
     setName(''); // очищає форму після заповнення
 }
     return (
         <div>
             <label>Cat name: <input type="text" onChange={({target})=>setName(target.value)} value={name}/></label>
-            <button onClick={save}>Save</button>
+            <button onClick={saveCat}>Save</button>
         </div>
     );
 };

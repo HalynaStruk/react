@@ -1,9 +1,13 @@
 import React from 'react';
+import {useDispatch} from "react-redux";
+import {actionsDog} from "../redux/slices";
 
-const Dog = () => {
+const Dog = ({dog}) => {
+    const dispatch = useDispatch();
     return (
         <div>
-            Dog
+            {dog.name}
+            <button onClick={()=> dispatch(actionsDog.deleteDog({id: dog.id}))}>delete</button>
         </div>
     );
 };
